@@ -1,0 +1,31 @@
+name: Test wf
+on:
+  push:
+    branches: ['main']
+jobs:
+  build_and_push:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        branch: ['main', 'develop']
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+        with:
+          repository: 'smaeyamada/github_wf'
+          ref: ${{ matrix.branch }}
+
+      - name: check
+        run: |
+          ls -l
+
+      - name: Checkout path
+        uses: actions/checkout@v3
+        with:
+          repository: 'smaeyamada/github_wf'
+          path: .github/workflows
+
+      - name: check2
+        run: |
+          ls -l
+          cat wf.yml
