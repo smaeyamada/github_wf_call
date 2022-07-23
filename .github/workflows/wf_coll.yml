@@ -3,7 +3,7 @@ on:
   push:
     branches: ['main']
 jobs:
-  build_and_push:
+  call_workflow:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -28,4 +28,5 @@ jobs:
       - name: check2
         run: |
           ls -l
+          cat README.md
           cat wf.yml
