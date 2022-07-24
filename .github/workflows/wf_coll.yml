@@ -25,11 +25,20 @@ jobs:
           ls -a
           cat wf.yml
 
-      - name: get wf
+      # - name: get wf
+      #   run: |
+      #     cd
+      #     cd ./.github/
+      #     mkdir actions
+      #     cd actions
+      #     curl https://raw.githubusercontent.com/smaeyamada/github_wf/${{ matrix.branch }}/.github/workflows/wf.yml > action.yml
+      #     cat action.yml
+
+      - name: call wf
         run: |
-          cd
-          cd ./.github/
-          mkdir actions
-          cd actions
-          curl https://raw.githubusercontent.com/smaeyamada/github_wf/${{ matrix.branch }}/.github/workflows/wf.yml > action.yml
-          cat action.yml
+          curl -X POST \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: token ${{ github.token }}" \
+            "https://api.github.com/repos/smaeyamada/github_wf/actions/workflows/wf.yml/dispatches" \
+            -d '{"ref":"${{ matrix.branch }}","inputs":{"cache_flg":"false"}}'
+          echo "status: $?"
