@@ -24,10 +24,12 @@ jobs:
         uses: actions/checkout@v3
         with:
           repository: 'smaeyamada/github_wf'
-          path: '.github/workflows'
+          ref: ${{ matrix.branch }}
+          path: './.github/workflows'
 
       - name: check2
         run: |
           cat README.md
-          ls -al ./.github/workflows/
-          cat ./.github/workflows/wf.yml
+          ls -al ./.github/
+          cd workflows
+          ls
