@@ -29,5 +29,5 @@ jobs:
       - name: check2
         run: |
           cat README.md
-          ls -al ./.github/
+          ls -al ./.github/workflows/
           cat ./.github/workflows/wf.yml
