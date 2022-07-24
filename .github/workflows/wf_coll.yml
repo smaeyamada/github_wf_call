@@ -42,3 +42,10 @@ jobs:
             "https://api.github.com/repos/smaeyamada/github_wf/actions/workflows/wf.yml/dispatches" \
             -d '{"ref":"${{ matrix.branch }}","inputs":{"cache_flg":"false"}}'
           echo "status: $?"
+
+      - name: read wf
+        run: |
+          curl -H "Accept: application/vnd.github+json" \
+            -H "Authorization: token ${{ secrets.GHA_TOKEN }}" \
+            "https://api.github.com/repos/smaeyamada/github_wf/actions/workflows/wf.yml/runs"
+          echo "status: $?"
