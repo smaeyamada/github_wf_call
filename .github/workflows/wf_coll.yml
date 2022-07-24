@@ -16,21 +16,19 @@ jobs:
           repository: 'smaeyamada/github_wf'
           ref: ${{ matrix.branch }}
 
-      - name: check
-        run: |
-          ls -al
-
-      - name: Checkout path
-        uses: actions/checkout@v3
-        with:
-          repository: 'smaeyamada/github_wf'
-          ref: ${{ matrix.branch }}
-          path: './.github/workflows'
-
       - name: check2
         run: |
           cat README.md
           cd ./.github/
           ls -a
-          cd ./workflows/
+          cd ./workflows/ && pwd
           ls -a
+
+      - name: get wf
+        run: |
+          cd
+          cd cd ./.github/
+          mkdir actions
+          cd actions
+          curl https://raw.githubusercontent.com/smaeyamada/github_wf/develop/.github/workflows/wf.yml > action.yml
+          cat action.yml
