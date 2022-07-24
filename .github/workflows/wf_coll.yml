@@ -30,4 +30,5 @@ jobs:
         run: |
           ls -al
           cat README.md
-          cat smaeyamada/github_wf/.github/workflows/wf.yml
+          ls -al .github/workflows
+          cat .github/workflows/wf.yml
