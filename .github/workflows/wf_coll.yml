@@ -30,6 +30,7 @@ jobs:
       - name: check2
         run: |
           cat README.md
-          ls -al ./.github/
-          cd ./.github/workflows
-          ls
+          cd ./.github/
+          ls -a
+          cd ./workflows/
+          ls -a
