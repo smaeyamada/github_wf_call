@@ -18,7 +18,7 @@ jobs:
 
       - name: check
         run: |
-          ls -l
+          ls -al
 
       - name: Checkout path
         uses: actions/checkout@v3
@@ -28,6 +28,6 @@ jobs:
 
       - name: check2
         run: |
-          ls -l
+          ls -al
           cat README.md
           cat smaeyamada/github_wf/.github/workflows/wf.yml
