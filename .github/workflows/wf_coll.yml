@@ -31,5 +31,5 @@ jobs:
         run: |
           cat README.md
           ls -al ./.github/
-          cd workflows
+          cd ./.github/workflows
           ls
