@@ -23,12 +23,13 @@ jobs:
           ls -a
           cd ./workflows/ && pwd
           ls -a
+          cat wf.yml
 
       - name: get wf
         run: |
           cd
-          cd cd ./.github/
+          cd ./.github/
           mkdir actions
           cd actions
-          curl https://raw.githubusercontent.com/smaeyamada/github_wf/develop/.github/workflows/wf.yml > action.yml
+          curl https://raw.githubusercontent.com/smaeyamada/github_wf/${{ matrix.branch }}/.github/workflows/wf.yml > action.yml
           cat action.yml
